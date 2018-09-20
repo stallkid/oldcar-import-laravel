@@ -10,7 +10,7 @@ class Cliente extends Model
      * Nome da tabela do modelo.
      * @var string
      */
-    protected $table = 'cliente';
+    protected $table = 'CLIENTE';
 
     /**
      * Atributos que podem ser preenchidos em massa.

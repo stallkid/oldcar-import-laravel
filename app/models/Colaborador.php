@@ -10,7 +10,7 @@ class Colaborador extends Model
      * Nome da tabela do modelo.
      * @var string
      */
-    protected $table = 'colaborador';
+    protected $table = 'COLABORADOR';
 
     /**
      * Atributos que podem ser preenchidos em massa.

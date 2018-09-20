@@ -10,7 +10,7 @@ class Usuario extends Model
      * Nome da tabela do modelo.
      * @var string
      */
-    protected $table = 'usuario';
+    protected $table = 'USUARIO';
 
     /**
      * Atributos que podem ser preenchidos em massa.

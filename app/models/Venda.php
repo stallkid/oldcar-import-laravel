@@ -10,7 +10,7 @@ class Venda extends Model
      * Nome da tabela do modelo.
      * @var string
      */
-    protected $table = 'venda';
+    protected $table = 'VENDA';
 
     /**
      * Atributos que podem ser preenchidos em massa.
