@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -15,9 +16,13 @@ class UsuarioController extends Controller
 
     public function login(Request $request)
     {
-        $logar = $this->model->where('EMAIL', $request['username'])->where('SENHA',$request['password'])->first();
+        $user = $request['username'];
+        $pass = md5($request['password']);
+
+        $logar = $this->model->where('EMAIL', $user)->where('SENHA',$pass)->first();
         if($logar !== null) {
-            return view('usuario.create');
+            $request->session()->put('loggedIn', $user);
+            return view('home.home');
         } else {
             return view('usuario.login');
         }

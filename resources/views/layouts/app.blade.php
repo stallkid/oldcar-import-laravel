@@ -8,21 +8,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark mb-5">
+    <nav class="navbar navbar-dark bg-dark navbar-collapse collapse">
   <a class="navbar-brand" href="/">OldCar Import</a>
   <div class="navbar-expand mr-auto">
+    @if(Request::session()->exists('loggedIn'))
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="#">Usuários</a>
       <a class="nav-item nav-link" href="#">Salas</a>
       <a class="nav-item nav-link" href="#">Agendamento</a>
     </div>
-  </div>
-  <div class="salution">
-    
+    @endif
   </div>
   <div class="navbar-expand ml-auto navbar-nav">
     <div class="navbar-nav">
+      @if(Request::session()->exists('loggedIn'))
         <a  class="nav-item nav-link"  href="#">Logout</a>
+      @else
+        <a  class="nav-item nav-link"  href="#">Login</a>
+      @endif
     </div>
   </div>
 </nav>

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
     {!! Form::open(['route' => 'users.post.login']) !!}
     {!! Form::token(); !!}
     <h3 class="form-section">Login</h3>
@@ -18,9 +19,7 @@
                 {!! Form::submit('Logar', ['class' => 'btn btn-primary']); !!}
             </div>
         </div>
-
     </div>
-        
-
+</div>
     {!! Form::close() !!}
 @endsection
