@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('usuario.login');
+});
+
+Route::group(['prefix' => 'users'], function() {
+    Route::get('login', 'UsuarioController@index')->name('users.get.login');
+    Route::post('login', 'UsuarioController@login')->name('users.post.login');
 });
