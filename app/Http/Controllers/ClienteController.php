@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\models\Cliente;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
+
+    protected $model;
+
+    public function __construct(Cliente $model) {
+            $this->model = $model;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        return view('cliente.index');
     }
 
     /**
@@ -23,7 +31,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente.create');
     }
 
     /**
@@ -31,9 +39,17 @@ class ClienteController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        dd($input);
+        $this->model->create([
+            'NOME'=>$input['nome'],
+            'SEXO '=>$input['sexo'],
+            'TELEFONE'=>$input['telefone']
+        ]);
+        
+        return view('cliente.index');
     }
 
     /**

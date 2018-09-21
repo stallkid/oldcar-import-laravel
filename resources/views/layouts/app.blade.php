@@ -9,22 +9,23 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark navbar-collapse collapse">
-  <a class="navbar-brand" href="/">OldCar Import</a>
+    <a class="navbar-brand" href="{{route('home')}}">OldCar Import</a>
   <div class="navbar-expand mr-auto">
     @if(Request::session()->exists('loggedIn'))
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#">Usuários</a>
-      <a class="nav-item nav-link" href="#">Salas</a>
-      <a class="nav-item nav-link" href="#">Agendamento</a>
+    <a class="nav-item nav-link" href="{{route('clients.index')}}">Clientes</a>
+      <a class="nav-item nav-link" href="#">Colaboradores</a>
+      <a class="nav-item nav-link" href="#">Veiculos</a>
+      <a class="nav-item nav-link" href="#">Vendas</a>
     </div>
     @endif
   </div>
   <div class="navbar-expand ml-auto navbar-nav">
     <div class="navbar-nav">
       @if(Request::session()->exists('loggedIn'))
-        <a  class="nav-item nav-link"  href="#">Logout</a>
+    <a  class="nav-item nav-link"  href="{{route('users.logout')}}">Logout</a>
       @else
-        <a  class="nav-item nav-link"  href="#">Login</a>
+    <a  class="nav-item nav-link"  href="{{route('users.get.login')}}">Login</a>
       @endif
     </div>
   </div>

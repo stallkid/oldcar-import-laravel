@@ -11,6 +11,9 @@ class Cliente extends Model
      * @var string
      */
     protected $table = 'CLIENTE';
+    public $timestamps = false;
+    protected $primaryKey = 'IDCLIENTE';
+    protected $keyType = 'int';
 
     /**
      * Atributos que podem ser preenchidos em massa.

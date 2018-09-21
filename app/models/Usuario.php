@@ -11,6 +11,9 @@ class Usuario extends Model
      * @var string
      */
     protected $table = 'USUARIO';
+    public $timestamps = false;
+    protected $primaryKey = 'IDUSUARIO';
+    protected $keyType = 'int';
 
     /**
      * Atributos que podem ser preenchidos em massa.
@@ -19,9 +22,5 @@ class Usuario extends Model
     protected $fillable = [
         'EMAIL',
         'SENHA'
-    ];
-
-    protected $guarded = [
-        'IDUSUARIO'
     ];
 }

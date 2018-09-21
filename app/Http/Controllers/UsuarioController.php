@@ -28,6 +28,13 @@ class UsuarioController extends Controller
         }
     }
 
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+
+        return view('usuario.login');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +52,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('usuario.create');
     }
 
     /**
@@ -59,8 +66,10 @@ class UsuarioController extends Controller
             'email' => 'required|max:120',
             'senha'=> 'required|min:6'
         ]);
-
-        $user = User::create($request->only('email', 'senha'));
+        
+        $input = $request->all();
+        $user = $this->model->create(['EMAIL'=>$input['username'],'SENHA'=>md5($input['password'])]);
+        return redirect()->route('home');
     }
 
     /**
@@ -71,7 +80,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('usuario.show');
     }
 
     /**
