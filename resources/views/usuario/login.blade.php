@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col-xs-1 text-center"></div>
         {!! Form::open(['route' => 'users.post.login']) !!}
-        {!! Form::token(); !!}
+        {!! Form::token() !!}
         <h3 class="form-section">Login</h3>
         <div class="row">
             <div class="col-md-6">

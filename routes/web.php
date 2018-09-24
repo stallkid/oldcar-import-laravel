@@ -27,7 +27,7 @@ Route::group(['prefix' => 'users'], function () {
     Route::post('store', 'UsuarioController@store')->name('users.store');
 });
 
-Route::group(['prefix' => 'clients'], function () {
+Route::group(['prefix' => 'clients', 'middleware' => 'usersession'], function () {
     Route::get('', 'ClienteController@index')->name('clients.index');
     Route::get('create', 'ClienteController@create')->name('clients.create');
     Route::post('store', 'ClienteController@store')->name('clients.store');
