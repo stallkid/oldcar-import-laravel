@@ -21,7 +21,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('cliente.index');
+        $clientes = $this->model->get();
+        return view('cliente.index', compact('clientes'));
     }
 
     /**
@@ -42,14 +43,16 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        dd($input);
-        $this->model->create([
-            'NOME'=>$input['nome'],
-            'SEXO '=>$input['sexo'],
+
+        $cliente = $this->model->fill([
+            'NOME_CLI'=>$input['nome'],
+            'SEXO'=>$input['sexo'],
             'TELEFONE'=>$input['telefone']
         ]);
+
+        $cliente->save();
         
-        return view('cliente.index');
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -71,7 +74,9 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente = $this->model->find($id);
+        
+        return view('cliente.edit',compact('cliente'));
     }
 
     /**
@@ -80,9 +85,17 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+
+        $this->model->find($id)->update([
+            'NOME_CLI' => $input['nome'],
+            'SEXO' => $input['sexo'],
+            'TELEFONE' => $input['telefone']
+        ]);
+
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -93,6 +106,8 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->model->find($id)->delete();
+
+        return redirect()->route('clients.index');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -61,15 +62,14 @@ class UsuarioController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {
-        $this->validate($request, [
-            'email' => 'required|max:120',
-            'senha'=> 'required|min:6'
-        ]);
-        
+    {   
+        try{
         $input = $request->all();
         $user = $this->model->create(['EMAIL'=>$input['username'],'SENHA'=>md5($input['password'])]);
         return redirect()->route('home');
+        } catch(Exception $e) {
+            echo $e;
+        }
     }
 
     /**

@@ -19,14 +19,14 @@
                     </label>
                     <label>
                         {!! Form::radio('sexo', 'F') !!}
-                        Femenino
+                        Feminino
                     </label>
                     <hr>
                     {!! Form::label( 'telefone', 'Telefone', [ 'class' => 'control-label' ] ) !!}
                     {!! Form::text( 'telefone','', [ 'class' => 'form-control' ]) !!}
 
                 </div>
-                    <a href="#" class="btn btn-danger">Cancelar</a>
+                    <a href="{{route('clients.index')}}" class="btn btn-danger">Cancelar</a>
                     {!! Form::submit('Cadastrar', ['class' => 'btn btn-primary']); !!}
             </div>
         </div>

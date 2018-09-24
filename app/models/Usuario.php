@@ -10,7 +10,7 @@ class Usuario extends Model
      * Nome da tabela do modelo.
      * @var string
      */
-    protected $table = 'USUARIO';
+    protected $table = 'usuario';
     public $timestamps = false;
     protected $primaryKey = 'IDUSUARIO';
     protected $keyType = 'int';

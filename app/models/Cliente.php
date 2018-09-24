@@ -10,7 +10,7 @@ class Cliente extends Model
      * Nome da tabela do modelo.
      * @var string
      */
-    protected $table = 'CLIENTE';
+    protected $table = 'cliente';
     public $timestamps = false;
     protected $primaryKey = 'IDCLIENTE';
     protected $keyType = 'int';
@@ -20,7 +20,7 @@ class Cliente extends Model
      * @var array
      */
     protected $fillable = [
-        'NOME',
+        'NOME_CLI',
         'SEXO',
         'TELEFONE'
     ];

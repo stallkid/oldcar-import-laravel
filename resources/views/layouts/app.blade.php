@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link res="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark navbar-collapse collapse">
@@ -31,7 +32,7 @@
   </div>
 </nav>
 
-        @yield('content')
+@yield('content')
 
 <nav class="navbar navbar-dark bg-dark mt-5 fixed-bottom">
   <div class="navbar-expand m-auto navbar-text">

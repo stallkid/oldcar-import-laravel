@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
-    {!! Form::open(['route' => 'users.post.login']) !!}
-    {!! Form::token(); !!}
-    <h3 class="form-section">Login</h3>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-8">
+    <div class="col-xs-1 text-center"></div>
+        {!! Form::open(['route' => 'users.post.login']) !!}
+        {!! Form::token(); !!}
+        <h3 class="form-section">Login</h3>
+        <div class="row">
+            <div class="col-md-6">
                 <div class="form-group">
                     {!! Form::label( 'username', 'Email', [ 'class' => 'control-label' ] ) !!}
                     {!! Form::text( 'username','', [ 'class' => 'form-control' ]) !!}
