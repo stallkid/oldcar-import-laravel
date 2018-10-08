@@ -5,9 +5,9 @@
         
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h2>Tabela de Clientes</h2>
+                <h2>Tabela de Colaboradores</h2>
                 <div class="pull-right">
-                    <a href="{{route('clients.create')}}" class="btn btn-primary">Criar Cliente</a>
+                    <a href="{{route('colaboradores.create')}}" class="btn btn-primary">Criar Colaborador</a>
                 </div>
                 <br>
                 <br>
@@ -18,20 +18,22 @@
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
+                        <th>Setor</th>
                         <th>Sexo</th>
                         <th>Telefone</th>
                         <th>ação</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($clientes as $cliente)
+                    @foreach($colaboradores as $colaborador)
                     <tr>
-                        <td>{{$cliente->IDCLIENTE}}</td>
-                        <td>{{$cliente->NOME_CLI}}</td>
-                        <td>{{$cliente->SEXO}}</td>
-                        <td>{{$cliente->TELEFONE}}</td>
+                        <td>{{$colaborador->IDCOLABORADOR}}</td>
+                        <td>{{$colaborador->NOME_COLAB}}</td>
+                        <td>{{$colaborador->SETOR}}</td>
+                        <td>{{$colaborador->SEXO}}</td>
+                        <td>{{$colaborador->TELEFONE}}</td>
                         <td>
-                        <a href="{{route('clients.edit',['id' => $cliente->IDCLIENTE])}}">editar</a> | <a href="{{route('clients.delete', ['id' => $cliente->IDCLIENTE])}}">deletar</a>
+                        <a href="{{route('colaboradores.edit',['id' => $colaborador->IDCOLABORADOR])}}">editar</a> | <a href="{{route('colaboradores.delete', ['id' => $colaborador->IDCOLABORADOR])}}">deletar</a>
                         </td>
                     </tr>
                     @endforeach

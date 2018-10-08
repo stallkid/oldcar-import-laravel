@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    {!! Form::open(['route' => 'clients.store']) !!}
+    {!! Form::open(['route' => 'veiculos.store']) !!}
     {!! Form::token(); !!}
     <h3 class="form-section">Adicionar Cliente</h3>
     <div class="row">

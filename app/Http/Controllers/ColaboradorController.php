@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\models\Colaborador;
 use Illuminate\Http\Request;
 
 class ColaboradorController extends Controller
 {
+
+    protected $model;
+
+    public function __construct(Colaborador $model) {
+        $this->model = $model;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,8 @@ class ColaboradorController extends Controller
      */
     public function index()
     {
-        //
+        $colaboradores = $this->model->get();
+        return view('colaborador.index', compact('colaboradores'));
     }
 
     /**
@@ -23,7 +31,7 @@ class ColaboradorController extends Controller
      */
     public function create()
     {
-        //
+        return view('colaborador.create');
     }
 
     /**
@@ -31,9 +39,20 @@ class ColaboradorController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        
+        $colaborador = $this->model->fill([
+            'NOME_COLAB' => $input['nome'],
+            'SETOR' => $input['setor'],
+            'SEXO' => $input['sexo'],
+            'TELEFONE' => $input['telefone']
+        ]);
+        
+        $colaborador->save();
+        
+        return redirect()->route('colaboradores.index');
     }
 
     /**
@@ -55,7 +74,9 @@ class ColaboradorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $colaborador = $this->model->find($id);
+
+        return view('colaborador.edit', compact('colaborador'));
     }
 
     /**
@@ -64,9 +85,18 @@ class ColaboradorController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+        $input = $request->all();
+
+        $this->model->find($id)->update([
+            'NOME_COLAB' => $input['nome'],
+            'SETOR' => $input['setor'],
+            'SEXO' => $input['sexo'],
+            'TELEFONE' => $input['telefone']
+        ]);
+
+        return redirect()->route('colaboradores.index');
     }
 
     /**
@@ -77,6 +107,8 @@ class ColaboradorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->model->find($id)->delete();
+
+        return redirect()->route('colaboradores.index');
     }
 }

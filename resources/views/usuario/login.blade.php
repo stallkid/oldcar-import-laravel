@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="col-xs-1 text-center"></div>
-        {!! Form::open(['route' => 'users.post.login']) !!}
+<div class="container" style="margin-top: 100px;">
+  <div class="row justify-content-center align-items-center">
+        {!! Form::open(['route' => 'users.post.login', 'className' => 'col-6']) !!}
         {!! Form::token() !!}
         <h3 class="form-section">Login</h3>
         <div class="row">
-            <div class="col-md-6">
+            <div>
                 <div class="form-group">
                     {!! Form::label( 'username', 'Email', [ 'class' => 'control-label' ] ) !!}
                     {!! Form::text( 'username','', [ 'class' => 'form-control' ]) !!}
@@ -22,5 +22,6 @@
         </div>
     </div>
 </div>
+{{-- </div> --}}
     {!! Form::close() !!}
 @endsection

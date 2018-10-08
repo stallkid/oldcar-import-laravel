@@ -35,3 +35,12 @@ Route::group(['prefix' => 'clients', 'middleware' => 'usersession'], function ()
     Route::put('update/{id}', 'ClienteController@update')->name('clients.update');
     Route::get('delete/{id}', 'ClienteController@destroy')->name('clients.delete');
 });
+
+Route::group(['prefix' => 'colaboradores', 'middleware' => 'usersession'], function () {
+    Route::get('', 'ColaboradorController@index')->name('colaboradores.index');
+    Route::get('create', 'ColaboradorController@create')->name('colaboradores.create');
+    Route::post('store', 'ColaboradorController@store')->name('colaboradores.store');
+    Route::get('edit/{id}', 'ColaboradorController@edit')->name('colaboradores.edit');
+    Route::put('update/{id}', 'ColaboradorController@update')->name('colaboradores.update');
+    Route::get('delete/{id}', 'ColaboradorController@destroy')->name('colaboradores.delete');
+});

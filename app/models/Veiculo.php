@@ -10,7 +10,10 @@ class Veiculo extends Model
      * Nome da tabela do modelo.
      * @var string
      */
-    protected $table = 'VEICULO';
+    protected $table = 'veiculo';
+    public $timestamps = false;
+    protected $primaryKey = 'IDVEICULO';
+    protected $keyType = 'int';
 
     /**
      * Atributos que podem ser preenchidos em massa.

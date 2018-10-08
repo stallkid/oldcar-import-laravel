@@ -33,7 +33,7 @@ class UsuarioController extends Controller
     {
         $request->session()->flush();
 
-        return view('usuario.login');
+        return redirect()->route('users.get.login');
     }
 
     /**

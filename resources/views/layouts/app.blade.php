@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>OldCar-Imports</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link res="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -15,7 +15,7 @@
     @if(Request::session()->exists('loggedIn'))
     <div class="navbar-nav">
     <a class="nav-item nav-link" href="{{route('clients.index')}}">Clientes</a>
-      <a class="nav-item nav-link" href="#">Colaboradores</a>
+      <a class="nav-item nav-link" href="{{route('colaboradores.index')}}">Colaboradores</a>
       <a class="nav-item nav-link" href="#">Veiculos</a>
       <a class="nav-item nav-link" href="#">Vendas</a>
     </div>
