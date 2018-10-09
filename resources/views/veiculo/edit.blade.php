@@ -2,32 +2,40 @@
 
 @section('content')
 <div class="container">
-    {!! Form::open(['route'=>['clients.update', $cliente->IDCLIENTE], 'method'=>'put']) !!}
+    {!! Form::open(['route'=>['veiculos.update', $veiculo->IDVEICULO], 'method'=>'put']) !!}
     {!! Form::token(); !!}
-    <h3 class="form-section">Editar Cliente {{$cliente->NOME_CLI}}</h3>
+    <h3 class="form-section">Editar Cliente {{$veiculo->IDVEICULO}}#</h3>
     <div class="row">
         <div class="col-md-12">
-            <div class="col-md-8">
-                <div class="form-group">
-                    {!! Form::label( 'nome', 'Nome', [ 'class' => 'control-label' ] ) !!}
-                    {!! Form::text( 'nome',$cliente->NOME_CLI, [ 'class' => 'form-control' ]) !!}
-                    <hr>
-                    {!! Form::label('sexo', 'Sexo', ['class' => 'control-label']) !!}
-                    <label>
-                        {!! Form::radio('sexo', 'M', $cliente->SEXO == 'M' ?true : false) !!}
-                        Masculino
-                    </label>
-                    <label>
-                        {!! Form::radio('sexo', 'F', $cliente->SEXO == 'F' ?true : false) !!}
-                        Feminino
-                    </label>
-                    <hr>
-                    {!! Form::label( 'telefone', 'Telefone', [ 'class' => 'control-label' ] ) !!}
-                    {!! Form::text( 'telefone',$cliente->TELEFONE, [ 'class' => 'form-control' ]) !!}
-
+            <div class="col-md-4">
+                    <div class="form-group">
+                        {!! Form::label( 'marca', 'Marca', [ 'class' => 'control-label' ] ) !!}
+                        {!! Form::text( 'marca',$veiculo->MARCA, [ 'class' => 'form-control' ]) !!}
+                        {{-- <hr> --}}
+                        {!! Form::label( 'nome', 'Nome', [ 'class' => 'control-label' ] ) !!}
+                        {!! Form::text( 'nome',$veiculo->NOME_VEI, [ 'class' => 'form-control' ]) !!}
+                        {{-- <hr> --}}
+                    </div>
                 </div>
-                    <a href="{{route('clients.index')}}" class="btn btn-danger">Cancelar</a>
-                    {!! Form::submit('Alterar', ['class' => 'btn btn-primary']); !!}
+            <div class="col-md-4">
+                    {!! Form::label( 'placa', 'Placa', [ 'class' => 'control-label' ] ) !!}
+                    {!! Form::text( 'placa',$veiculo->PLACA, [ 'class' => 'form-control' ]) !!}
+                    {{-- <hr> --}}
+                    {!! Form::label( 'modelo', 'Modelo', [ 'class' => 'control-label' ] ) !!}
+                    {!! Form::text( 'modelo',$veiculo->MODELO, [ 'class' => 'form-control' ]) !!}
+                    {{-- <hr> --}}
+            </div>
+            <div class="col-md-4">
+                    {!! Form::label( 'tipo', 'Tipo', [ 'class' => 'control-label' ] ) !!}
+                    {!! Form::text( 'tipo',$veiculo->TIPO, [ 'class' => 'form-control' ]) !!}
+                    {{-- <hr> --}}
+                    {!! Form::label( 'valor', 'Valor', [ 'class' => 'control-label' ] ) !!}
+                    {!! Form::text( 'valor',$veiculo->VALOR, [ 'class' => 'form-control' ]) !!}
+            </div>
+            <hr>
+            <div class="col-md-4">
+                <a href="{{route('veiculos.index')}}" class="btn btn-danger">Cancelar</a>
+                    {!! Form::submit('Atualizar', ['class' => 'btn btn-primary']); !!}
             </div>
         </div>
     </div>

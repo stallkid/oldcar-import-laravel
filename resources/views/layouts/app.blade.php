@@ -16,8 +16,8 @@
     <div class="navbar-nav">
     <a class="nav-item nav-link" href="{{route('clients.index')}}">Clientes</a>
       <a class="nav-item nav-link" href="{{route('colaboradores.index')}}">Colaboradores</a>
-      <a class="nav-item nav-link" href="#">Veiculos</a>
-      <a class="nav-item nav-link" href="#">Vendas</a>
+      <a class="nav-item nav-link" href="{{route('veiculos.index')}}">Veiculos</a>
+      <a class="nav-item nav-link" href="{{route('vendas.index')}}">Vendas</a>
     </div>
     @endif
   </div>

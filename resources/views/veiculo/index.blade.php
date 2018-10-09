@@ -5,9 +5,9 @@
         
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h2>Tabela de Clientes</h2>
+                <h2>Tabela de Veiculos</h2>
                 <div class="pull-right">
-                    <a href="{{route('clients.create')}}" class="btn btn-primary">Criar Cliente</a>
+                    <a href="{{route('veiculos.create')}}" class="btn btn-primary">Criar Veiculos</a>
                 </div>
                 <br>
                 <br>
@@ -17,21 +17,27 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Marca</th>
                         <th>Nome</th>
-                        <th>Sexo</th>
-                        <th>Telefone</th>
+                        <th>Placa</th>
+                        <th>Modelo</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
                         <th>ação</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($clientes as $cliente)
+                    @foreach($veiculos as $veiculo)
                     <tr>
-                        <td>{{$cliente->IDCLIENTE}}</td>
-                        <td>{{$cliente->NOME_CLI}}</td>
-                        <td>{{$cliente->SEXO}}</td>
-                        <td>{{$cliente->TELEFONE}}</td>
+                        <td>{{$veiculo->IDVEICULO}}</td>
+                        <td>{{$veiculo->MARCA}}</td>
+                        <td>{{$veiculo->NOME_VEI}}</td>
+                        <td>{{$veiculo->PLACA}}</td>
+                        <td>{{$veiculo->MODELO}}</td>
+                        <td>{{$veiculo->TIPO}}</td>
+                        <td>{{$veiculo->VALOR ? 'R$ '.number_format($veiculo->VALOR,2,',','') : ''}}</td>
                         <td>
-                        <a href="{{route('clients.edit',['id' => $cliente->IDCLIENTE])}}">editar</a> | <a href="{{route('clients.delete', ['id' => $cliente->IDCLIENTE])}}">deletar</a>
+                        <a href="{{route('veiculos.edit',['id' => $veiculo->IDVEICULO])}}">editar</a> | <a href="{{route('veiculos.delete', ['id' => $veiculo->IDVEICULO])}}">deletar</a>
                         </td>
                     </tr>
                     @endforeach

@@ -21,7 +21,7 @@ class Veiculo extends Model
      */
     protected $fillable = [
         'MARCA',
-        'NOME',
+        'NOME_VEI',
         'PLACA',
         'MODELO',
         'TIPO',

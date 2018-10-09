@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\models\Veiculo;
 use Illuminate\Http\Request;
 
 class VeiculoController extends Controller
 {
+    protected $model;
+
+    public function __construct(Veiculo $model) {
+            $this->model = $model;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,8 @@ class VeiculoController extends Controller
      */
     public function index()
     {
-        //
+        $veiculos = $this->model->get();
+        return view('veiculo.index', compact('veiculos'));
     }
 
     /**
@@ -23,7 +30,7 @@ class VeiculoController extends Controller
      */
     public function create()
     {
-        //
+        return view('veiculo.create');
     }
 
     /**
@@ -31,9 +38,22 @@ class VeiculoController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $veiculo = $this->model->fill([
+            'MARCA' => $input['marca'],
+            'NOME_VEI' => $input['nome'],
+            'PLACA' => $input['placa'],
+            'MODELO' => $input['modelo'],
+            'TIPO' => $input['tipo'],
+            'VALOR' => $input['valor']
+        ]);
+
+        $veiculo->save();
+
+        return redirect()->route('veiculos.index');
     }
 
     /**
@@ -55,7 +75,9 @@ class VeiculoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $veiculo = $this->model->find($id);
+
+        return view('veiculo.edit', compact('veiculo'));
     }
 
     /**
@@ -64,9 +86,20 @@ class VeiculoController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+        $input = $request->all();
+
+        $this->model->find($id)->update([
+            'MARCA' => $input['marca'],
+            'NOME_VEI' => $input['nome'],
+            'PLACA' => $input['placa'],
+            'MODELO' => $input['modelo'],
+            'TIPO' => $input['tipo'],
+            'VALOR' => $input['valor']
+        ]);
+
+        return redirect()->route('veiculos.index');
     }
 
     /**
@@ -77,6 +110,8 @@ class VeiculoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->model->find($id)->delete();
+
+        return redirect()->route('veiculos.index');
     }
 }

@@ -24,4 +24,5 @@ class Cliente extends Model
         'SEXO',
         'TELEFONE'
     ];
+
 }

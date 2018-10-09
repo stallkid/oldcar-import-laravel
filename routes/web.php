@@ -44,3 +44,21 @@ Route::group(['prefix' => 'colaboradores', 'middleware' => 'usersession'], funct
     Route::put('update/{id}', 'ColaboradorController@update')->name('colaboradores.update');
     Route::get('delete/{id}', 'ColaboradorController@destroy')->name('colaboradores.delete');
 });
+
+Route::group(['prefix' => 'veiculos', 'middleware' => 'usersession'], function () {
+    Route::get('', 'VeiculoController@index')->name('veiculos.index');
+    Route::get('create', 'VeiculoController@create')->name('veiculos.create');
+    Route::post('store', 'VeiculoController@store')->name('veiculos.store');
+    Route::get('edit/{id}', 'VeiculoController@edit')->name('veiculos.edit');
+    Route::put('update/{id}', 'VeiculoController@update')->name('veiculos.update');
+    Route::get('delete/{id}', 'VeiculoController@destroy')->name('veiculos.delete');
+});
+
+Route::group(['prefix' => 'vendas', 'middleware' => 'usersession'], function () {
+    Route::get('', 'VendaController@index')->name('vendas.index');
+    Route::get('create', 'VendaController@create')->name('vendas.create');
+    Route::post('store', 'VendaController@store')->name('vendas.store');
+    Route::get('edit/{id}', 'VendaController@edit')->name('vendas.edit');
+    Route::put('update/{id}', 'VendaController@update')->name('vendas.update');
+    Route::get('delete/{id}', 'VendaController@destroy')->name('vendas.delete');
+});
